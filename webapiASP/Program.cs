@@ -2,6 +2,7 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using webapiASP.Models;
@@ -29,7 +30,6 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJw
 var app = builder.Build();
 app.UseAuthentication();
 app.UseAuthorization();
-app.UseRateLimiter();
 app.MapControllers();
 app.MapGet("/", () => "Hello World!");
 app.Map("/login", async (Persons user, DataContext db) =>
@@ -65,7 +65,7 @@ public class AuthOptions
 {
     public const string Issuer = "MyAuthServer";
     public const string Audience = "MyAuthClient";
-    const string Key = "k@2in2ov7nov!nld$nl";
+    const string Key = "k@2in2ov7nov!nld$nl@2in2ov7nd$nl";
 
     public static SymmetricSecurityKey GetSymmetricSecurityKey() =>
         new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Key));

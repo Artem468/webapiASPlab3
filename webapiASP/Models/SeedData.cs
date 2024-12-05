@@ -114,6 +114,16 @@ namespace webapiASP.Models
             }
 
             context.SaveChanges();
+            var users = new[]
+            {
+                new Persons { Login = "root", Password = "toor"},
+            };
+            if (!context.Users.Any())
+            {
+                context.Users.AddRange(users);
+            }
+
+            context.SaveChanges();
         }
     }
 }

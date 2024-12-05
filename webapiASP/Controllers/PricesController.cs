@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.RateLimiting;
 using webapiASP.Models;
 using Microsoft.EntityFrameworkCore;
@@ -33,6 +34,7 @@ namespace webapiASP.Controllers
         }
 
         [HttpPost]
+        [Authorize]
         public async Task<ActionResult> AddAsync([FromBody] Prices price)
         {
             _db.Prices.Add(price);
@@ -42,6 +44,7 @@ namespace webapiASP.Controllers
         }
 
         [HttpPut("{id}")]
+        [Authorize]
         public async Task<ActionResult> UpdateAsync(long id, [FromBody] Prices price)
         {
             var existingPrice = await _db.Prices.FindAsync(id);
@@ -66,6 +69,7 @@ namespace webapiASP.Controllers
         }
 
         [HttpDelete("{id}")]
+        [Authorize]
         public async Task<ActionResult> DeleteAsync(long id)
         {
             var price = await _db.Prices.FindAsync(id);

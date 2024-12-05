@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Http.HttpResults;
+﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.RateLimiting;
 using Microsoft.EntityFrameworkCore;
@@ -34,6 +34,7 @@ namespace webapiASP.Controllers
         }
 
         [HttpPost]
+        [Authorize]
         public async Task<ActionResult> AddAsync([FromBody] RegistrationProduct registrationProduct)
         {
             _db.RegistrationProduct.Add(registrationProduct);
@@ -43,6 +44,7 @@ namespace webapiASP.Controllers
         }
 
         [HttpPut("{id}")]
+        [Authorize]
         public async Task<ActionResult> UpdateAsync(long id, [FromBody] RegistrationProduct registrationProduct)
         {
             var existingRegistrationProduct = await _db.RegistrationProduct.FindAsync(id);
@@ -70,6 +72,7 @@ namespace webapiASP.Controllers
         }
 
         [HttpDelete("{id}")]
+        [Authorize]
         public async Task<ActionResult> DeleteAsync(long id)
         {
             var registrationProduct = await _db.RegistrationProduct.FindAsync(id);
