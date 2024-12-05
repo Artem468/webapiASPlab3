@@ -161,3 +161,5 @@ C:\Users\Artem\Desktop\projects\webapiASP\webapiASP\obj\Debug\net8.0\refint\weba
 C:\Users\Artem\Desktop\projects\webapiASP\webapiASP\obj\Debug\net8.0\webapiASP.pdb
 C:\Users\Artem\Desktop\projects\webapiASP\webapiASP\obj\Debug\net8.0\webapiASP.genruntimeconfig.cache
 C:\Users\Artem\Desktop\projects\webapiASP\webapiASP\obj\Debug\net8.0\ref\webapiASP.dll
+C:\Users\Artem\Desktop\projects\webapiASP\webapiASP\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\Artem\Desktop\projects\webapiASP\webapiASP\obj\Debug\net8.0\webapiASP.sourcelink.json
