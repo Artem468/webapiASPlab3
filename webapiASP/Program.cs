@@ -27,10 +27,17 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme).AddJw
         IssuerSigningKey = AuthOptions.GetSymmetricSecurityKey(),
         ValidateIssuerSigningKey = true
     });
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
 var app = builder.Build();
 app.UseAuthentication();
 app.UseAuthorization();
 app.MapControllers();
+if (app.Environment.IsDevelopment())
+{
+    app.UseSwagger();
+    app.UseSwaggerUI();
+}
 app.MapGet("/", () => "Hello World!");
 app.Map("/login", async (Persons user, DataContext db) =>
 {

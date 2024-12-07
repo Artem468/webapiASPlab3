@@ -163,3 +163,8 @@ C:\Users\Artem\Desktop\projects\webapiASP\webapiASP\obj\Debug\net8.0\webapiASP.g
 C:\Users\Artem\Desktop\projects\webapiASP\webapiASP\obj\Debug\net8.0\ref\webapiASP.dll
 C:\Users\Artem\Desktop\projects\webapiASP\webapiASP\bin\Debug\net8.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 C:\Users\Artem\Desktop\projects\webapiASP\webapiASP\obj\Debug\net8.0\webapiASP.sourcelink.json
+C:\Users\Artem\Desktop\projects\webapiASP\webapiASP\bin\Debug\net8.0\Microsoft.OpenApi.dll
+C:\Users\Artem\Desktop\projects\webapiASP\webapiASP\bin\Debug\net8.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\Artem\Desktop\projects\webapiASP\webapiASP\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\Artem\Desktop\projects\webapiASP\webapiASP\bin\Debug\net8.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\Artem\Desktop\projects\webapiASP\webapiASP\obj\Debug\net8.0\webapiASP.MvcApplicationPartsAssemblyInfo.cs
