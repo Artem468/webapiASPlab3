@@ -19,6 +19,7 @@ namespace webapiASP.Controllers
         }
 
         [HttpGet]
+        [Authorize]
         public IAsyncEnumerable<RegistrationProduct> GetRegistrationProduct()
         {
             return _db.RegistrationProduct.AsAsyncEnumerable();
@@ -26,6 +27,7 @@ namespace webapiASP.Controllers
 
         [HttpGet("{id}")]
         [DisableRateLimiting]
+        [Authorize]
         public async Task<IActionResult> GetRegistrationProduct(long id)
         {
             RegistrationProduct? prices = await _db.RegistrationProduct.FindAsync(id);

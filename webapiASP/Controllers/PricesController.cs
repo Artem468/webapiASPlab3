@@ -19,6 +19,7 @@ namespace webapiASP.Controllers
         }
 
         [HttpGet]
+        [Authorize]
         public IAsyncEnumerable<Prices> GetPrices()
         {
             return _db.Prices.AsAsyncEnumerable();
@@ -26,6 +27,7 @@ namespace webapiASP.Controllers
 
         [HttpGet("{id}")]
         [DisableRateLimiting]
+        [Authorize]
         public async Task<IActionResult> GetPrice(long id)
         {
             Prices? prices = await _db.Prices.FindAsync(id);

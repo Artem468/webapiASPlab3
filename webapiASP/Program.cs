@@ -2,7 +2,6 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using webapiASP.Models;
@@ -41,8 +40,8 @@ if (app.Environment.IsDevelopment())
 app.MapGet("/", () => "Hello World!");
 app.Map("/login", async (Persons user, DataContext db) =>
 {
-    Persons? userDB = await db.Users!.FirstOrDefaultAsync(p => p.Login == user.Login && p.Password == user.Password);
-    if (userDB == null)
+    Persons? userDb = await db.Users.FirstOrDefaultAsync(p => p.Login == user.Login && p.Password == user.Password);
+    if (userDb == null)
     {
         return Results.Unauthorized();
     }
@@ -55,10 +54,10 @@ app.Map("/login", async (Persons user, DataContext db) =>
         signingCredentials: new SigningCredentials(
             AuthOptions.GetSymmetricSecurityKey(), SecurityAlgorithms.HmacSha256)
     );
-    var encoderJWT = new JwtSecurityTokenHandler().WriteToken(jwt);
+    string? encoderJwt = new JwtSecurityTokenHandler().WriteToken(jwt);
     var response = new
     {
-        access_token = encoderJWT,
+        access_token = encoderJwt,
         username = user.Login
     };
     return Results.Json(response);
